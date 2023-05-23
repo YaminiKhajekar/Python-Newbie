@@ -1,5 +1,5 @@
 
-#Kaggle Practice 
+
 print("Hello, world!")
 print(1 + 2)
 a= 4 + 5
@@ -95,3 +95,93 @@ def get_actual_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
 
 print(get_actual_cost(432, 144, 400, 15))
 
+## MODULE FOR PYTHON DATATYPES
+#Integers
+x = 14
+print(x)
+print(type(x))
+
+#floats
+nearly_pi = 3.141592653589793238462643383279502884197169399375105820974944
+print(nearly_pi)
+print(type(nearly_pi))
+
+almost_pi = 22/7
+print(almost_pi)
+print(type(almost_pi))
+
+#One function that is particularly useful for fractions is the round() function. It lets you round a number to a specified number of decimal places.
+
+# Round to 5 decimal places
+rounded_pi = round(almost_pi, 5)
+print(rounded_pi)
+print(type(rounded_pi))
+
+test_round = round(2.5734726496374636, 2)
+print (test_round)
+
+y_float = 1.
+print(y_float)
+print(type(y_float))
+
+#Booleans
+#Booleans represent one of two values: True or False. In the code cell below, z_one is set to a boolean with value True
+z_one = True
+print(z_one)
+print(type(z_one))
+
+z_two = False
+print (z_two)
+print (type(z_two))
+
+z_three = (1>2)
+print(z_three)
+print(type(z_three))
+
+z_four = (5 < 3)
+print(z_four)
+print(type(z_four))
+
+z_five = not z_four
+print(z_five)
+print(type(z_five))
+
+#Strings, Commonly used to represent text
+
+w = "Hello, Python!"
+print(w)
+print(type(w))
+print(len(w))
+
+my_number = "1.12321"
+print(my_number)
+print(type(my_number))
+
+#Converting Strings to float
+also_my_number = float(my_number)
+print(also_my_number)
+print(type(also_my_number))
+
+new_string = "abc" + "def"
+print(new_string)
+print(type(new_string))
+
+newest_string = "abc" * 3
+print(newest_string)
+print(type(newest_string))
+
+
+y=1.
+print(y)
+print(type(y))
+
+w = int(y)
+print(w)
+print(type(w))
+
+print(int(1.2321))
+print(int(1.747))
+print(int(-3.94535))
+print(int(-2.19774))
+
+print("abc" * False)
