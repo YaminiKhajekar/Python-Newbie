@@ -1,0 +1,97 @@
+
+#Kaggle Practice 
+print("Hello, world!")
+print(1 + 2)
+a= 4 + 5
+print (a)
+my_var=a+3
+print (my_var)
+# Create variables
+num_years = 4
+days_per_year = 365 
+hours_per_day = 24
+mins_per_hour = 60
+secs_per_min = 60
+
+# Calculate number of seconds in four years
+total_secs = secs_per_min * mins_per_hour * hours_per_day * days_per_year * num_years
+print(total_secs)
+# Update to include leap years
+days_per_year = 365.25
+
+# Calculate number of seconds in four years
+total_secs = secs_per_min * mins_per_hour * hours_per_day * days_per_year * num_years
+print(total_secs)
+print(hours_per_day)
+
+#define a function that adds three to inout variable
+
+def add_three(input_var):
+    output_var= input_var+3
+    return output_var
+
+print (add_three(3))
+
+new_number= add_three(10)
+print (new_number)
+
+def get_pay(num_hours):
+    pay_pre = 15*(num_hours)
+    pay_post = pay_pre*(1-0.12)
+    return pay_post
+print (get_pay(14))
+
+full_pay = get_pay(40)
+
+print (full_pay)
+
+pay_parttime = get_pay(32)
+
+print (pay_parttime)
+
+def get_pay_with_moreinputs(num_hours, hourly_wage, tax):
+    pre_tax_pay = num_hours*hourly_wage
+    post_tax_pay = pre_tax_pay*(1-tax)
+    return post_tax_pay
+
+print (get_pay_with_moreinputs(3, 15, 0.12))
+
+print (get_pay_with_moreinputs(40, 24, .22))
+
+# TODO: Complete the function
+def get_expected_cost(beds, baths):
+    value = (8000 + beds*30000 + baths*10000)
+    return value
+
+the_home = get_expected_cost(3, 3)
+print (the_home)
+
+# TODO: Use the get_expected_cost function to fill in each value
+option_one = get_expected_cost(2, 3)
+option_two = get_expected_cost(3, 2)
+option_three = get_expected_cost(3, 3)
+option_four = get_expected_cost(3, 4)
+
+print(option_one)
+print(option_two)
+print(option_three)
+print(option_four)
+
+# TODO: Finish defining the function
+def get_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
+    cost = ((sqft_walls+sqft_ceiling)/sqft_per_gallon)*cost_per_gallon
+    return cost
+
+project_cost = get_cost(432, 144, 400, 15)
+
+print (project_cost)
+
+import math
+
+def get_actual_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
+    cost = ((sqft_walls + sqft_ceiling) / sqft_per_gallon) * cost_per_gallon
+    final_cost = math.ceil(cost)
+    return final_cost
+
+print(get_actual_cost(432, 144, 400, 15))
+
