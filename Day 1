@@ -184,4 +184,80 @@ print(int(1.747))
 print(int(-3.94535))
 print(int(-2.19774))
 
+#CONDITIONS AND CONDITIONAL STATEMENTS
+
+def evaluate_temp(temp):
+    message = "Normal Temperature"
+    if temp>37:
+        message = "Fever!"
+    return message
+    
+print (evaluate_temp(32))
+
+def evaluate_temp_withelse(temp):
+    if temp>38:
+        message = "Fever!"
+    else: message = "Normal Temperature"
+    return message
+
+print(evaluate_temp_withelse(39))
+
+def evaluate_temp_with_elif(temp):
+    if temp > 38:
+        message = "Fever!"
+    elif temp > 35:
+        message = "Normal temperature."
+    else:
+        message = "Low temperature."
+    return message
+
+#Everyone earning less than 12,000 pays 25% in taxes, and anyone earning 12,000 or more pays 30%. The function below calculates how much tax is owed.
+
+def get_taxes(earnings):
+    if earnings<12000:
+        tax = 0.25*earnings
+    elif earnings>12000:
+        tax = 0.30*earnings
+    return tax
+ana_taxes = get_taxes(9000)
+bob_taxes = get_taxes(15000)
+
+print(ana_taxes)
+print(bob_taxes)
+
+##Multiple elif in a code
+def get_dose(weight):
+    # Dosage is 1.25 ml for anyone under 5.2 kg
+    if weight < 5.2:
+        dose = 1.25
+    elif weight < 7.9:
+        dose = 2.5
+    elif weight < 10.4:
+        dose = 3.75
+    elif weight < 15.9:
+        dose = 5
+    elif weight < 21.2:
+        dose = 7.5
+    # Dosage is 10 ml for anyone 21.2 kg or over
+    else:
+        dose = 10
+    return dose
+
+print(get_dose(12))
+
+##Practice Questions for Conditions
+
+def get_grade(score):
+    if score<60:
+        grade = "F"
+    elif score<70:
+        grade = "D"
+    elif score<80:
+        grade = "C"
+    elif score<90:
+        grade = "B"
+    elif score<100:
+        grade = "A"
+    return grade
+
 print("abc" * False)
