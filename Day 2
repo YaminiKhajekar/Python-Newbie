@@ -306,6 +306,25 @@ def player_strategy(player_hand, dealer_card):
 
 player_strategy()
 
+#LISTS
+#some list functions were studied
+
+#FOR LOOPS
+s = 'steganograpHy is the practicE of conceaLing a file, message, image, or video within another fiLe, message, image, Or video.'
+msg = ''
+# print all the uppercase letters in s, one at a time
+for char in s:
+    if char.isupper():
+        print(char, end='')        
+
+List_Planets = [ "Mars", "venus", "Mercury", "Earth", "Saturn", "Jupiter"]
+for item in List_Planets:
+    print(item)
+
+List_Prac = ["a", "b", "c", 1, 5, 8, 99, 78, 56, 23, "q", "r", "s", "t", 4, 3]
+for item in List_Prac:
+    if isinstance(item, int) and item > 6:
+        print(item)
 
 
 
