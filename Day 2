@@ -194,3 +194,120 @@ is_workday = False
 actual = prepared_for_weather(have_umbrella, rain_level, have_hood, is_workday)
 print(actual)
 
+# BOOLEAN AND CONDITIONALS
+
+def can_run_for_president(age):
+    return age>=35
+
+print ("Can a 19-year-old run for president? - ", can_run_for_president(19) )
+
+def is_odd(n):
+    return n%2 == 1 
+
+print (is_odd(11))
+
+def can_run_for_president(age, is_natural_born_citizen):
+    return is_natural_born_citizen and (age>=35)
+
+print (can_run_for_president(45, True))
+
+#conditionals
+
+def inspect(x):
+    if x==0:
+        print(x, "is zero")
+    elif x >0:
+        print (x, "is positive")
+    elif x < 0:
+        print (x, "is negative")
+    else: 
+        print (x, "some magical object")
+
+print (inspect (53))
+
+print(bool(1)) # all numbers are treated as true, except 0
+print(bool(0))
+print(bool("asf")) # all strings are treated as true, except the empty string ""
+print(bool(""))
+# Generally empty sequences (strings, lists, and other types we've yet to see like lists and tuples)
+# are "falsey" and the rest are "truthy"
+
+if 0:
+    print(0)
+elif "spam":
+    print("spam")
+
+#BOOLEANS AND CONDITIONS 
+
+def sign(x):
+    if x>0:
+        return 1 
+    elif x<0:
+        return -1
+    else:
+        return 0 
+    
+def to_smash(total_candies):
+    """Return the number of leftover candies that must be smashed after distributing
+    the given number of candies evenly between 3 friends.
+    
+    >>> to_smash(91)
+    1
+    """
+    print("Splitting", total_candies, "candies")
+    return total_candies % 3
+
+to_smash(91)
+
+def prepared_for_weather(have_umbrella, rain_level, have_hood, is_workday):
+    # Don't change this code. Our goal is just to find the bug, not fix it!
+    return have_umbrella or rain_level < 5 and have_hood or not rain_level > 0 and is_workday
+
+# Change the values of these inputs so they represent a case where prepared_for_weather
+# returns the wrong answer.
+have_umbrella = False
+rain_level = 0.0
+have_hood = False
+is_workday = False
+
+# Check what the function returns given the current values of the variables above
+actual = prepared_for_weather(have_umbrella, rain_level, have_hood, is_workday)
+print(actual)
+
+#exactly one topping 
+def exactly_one_topping(ketchup, mustard, onion):
+    """Return whether the customer wants exactly one of the three available toppings
+    on their hot dog.
+    """
+    return (ketchup and not mustard and not onion) or (mustard and not ketchup and not onion) or (onion and not ketchup and not mustard)
+​
+##THE GAME OF BLACK JACK
+
+def player_strategy(player_hand, dealer_card):
+    player_total = sum(player_hand)
+    
+    # Check if the player has an ace in their hand
+    has_ace = 1 in player_hand
+    
+    # If the player's total is less than 17, always hit
+    if player_total < 17:
+        return 'hit'
+    
+    # If the player's total is 17 or higher and doesn't have an ace, stand
+    if player_total >= 17 and not has_ace:
+        return 'stand'
+    
+    # If the player's total is 17 or higher and has an ace, hit only if the dealer's card is greater than or equal to 8
+    if player_total >= 17 and has_ace:
+        if dealer_card >= 8:
+            return 'hit'
+        else:
+            return 'stand'
+
+player_strategy()
+
+
+
+
+
+
