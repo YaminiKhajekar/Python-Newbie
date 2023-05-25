@@ -41,3 +41,99 @@ def first_unique_character(s):
         if char_count[s[i]] == 1:
             return i 
     return -1 
+    
+    ##STRINGS
+
+x = 'Pluto is a planet'
+y = "Pluto is a planet"
+print( x == y )
+
+
+print("Pluto's a planet!")
+print('My dog is named "Pluto"')
+
+print("hello")
+print("world")
+print("hello", end='')
+print(" pluto")
+
+# ALL CAPS
+claim = "Pluto is a planet!"
+print(claim.upper())
+
+# Searching for the first index of a substring
+print(claim.index('plan'))
+
+#A researcher has gathered thousands of news articles. But she wants to focus her attention on articles including a specific word. Complete the function below to help her filter her list of articles.
+#Your function should meet the following criteria:
+#Do not include documents where the keyword string shows up only as a part of a larger word. For example, if she were looking for the keyword “closed”, you would not include the string “enclosed.”
+#She does not want you to distinguish upper case from lower case letters. So the phrase “Closed the case.” would be included when the keyword is “closed”
+#Do not let periods or commas affect what is matched. “It is closed.” would be included when the keyword is “closed”. But you can assume there are no other types of punctuation.
+
+def word_search(doc_strings, keyword):
+    indices = []
+    for i, doc in enumerate(doc_strings):  # Fixed variable name from 'doc_string' to 'doc_strings'
+        tokens = doc.split()
+        normalized = [token.lower().strip(',.') for token in tokens]  # Fixed syntax error and normalized the tokens
+        if keyword.lower() in normalized:
+            indices.append(i)  # Fixed syntax error
+    return indices
+
+## INTERESTING QUESTIONS
+
+def blackjack_hand_greater_than(hand_1, hand_2):
+    """
+    Return True if hand_1 beats hand_2, and False otherwise.
+    
+    In order for hand_1 to beat hand_2 the following must be true:
+    - The total of hand_1 must not exceed 21
+    - The total of hand_1 must exceed the total of hand_2 OR hand_2's total must exceed 21
+    
+    Hands are represented as a list of cards. Each card is represented by a string.
+    
+    When adding up a hand's total, cards with numbers count for that many points. Face
+    cards ('J', 'Q', and 'K') are worth 10 points. 'A' can count for 1 or 11.
+    
+    When determining a hand's total, you should try to count aces in the way that 
+    maximizes the hand's total without going over 21. e.g. the total of ['A', 'A', '9'] is 21,
+    the total of ['A', 'A', '9', '3'] is 14.
+    
+    Examples:
+    >>> blackjack_hand_greater_than(['K'], ['3', '4'])
+    True
+    >>> blackjack_hand_greater_than(['K'], ['10'])
+    False
+    >>> blackjack_hand_greater_than(['K', 'K', '2'], ['3'])
+    False
+    """
+    def hand_total(hand):
+        """
+        Calculate the total value of a hand while accounting for aces.
+        """
+        total = 0
+        ace_count = 0
+
+        # Calculate the total without aces
+        for card in hand:
+            if card in ['J', 'Q', 'K']:
+                total += 10
+            elif card == 'A':
+                ace_count += 1
+            else:
+                total += int(card)
+
+        # Calculate the total with aces
+        for _ in range(ace_count):
+            if total + 11 <= 21:
+                total += 11
+            else:
+                total += 1
+
+        return total
+
+    total_1 = hand_total(hand_1)
+    total_2 = hand_total(hand_2)
+
+    return total_1 <= 21 and (total_1 > total_2 or total_2 > 21)
+
+
