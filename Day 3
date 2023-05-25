@@ -1,0 +1,43 @@
+
+#Leet Code Contest Practice Problems
+# Given an integer n, return all the numbers in the range [1, n] sorted in lexicographical order.
+#You must write an algorithm that runs in O(n) time and uses O(1) extra space.
+ 
+#solution 1
+def lexicalOrder(n):
+    result = []
+    curr = 1
+    for _ in range(n):
+        result.append(curr)
+        if curr * 10 <= n:
+            curr *= 10
+        elif curr % 10 != 9 and curr + 1 <= n:
+            curr += 1
+        else:
+            while (curr // 10) % 10 == 9:
+                curr //= 10
+            curr = curr // 10 + 1
+    return result
+print (lexicalOrder(13))
+
+#solution 2 >> You assume the numbers to be strings
+numbers = [-121, 12, -90, 39, -65, -70, 0, 12, 13, 15, 67, 89, 90, 76, 56, 22]
+
+numbers.sort(key=str)
+print (numbers)
+
+# Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+def first_unique_character(s):
+    char_count = ()
+# count the occurences of each character
+    for char in s:
+        if char in char_count:
+            char_count[char] +=1
+        else:
+            char_count[char] = 1
+#find the first non-repeating character
+    for i in range(s):
+        if char_count[s[i]] == 1:
+            return i 
+    return -1 
