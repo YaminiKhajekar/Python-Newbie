@@ -1,0 +1,78 @@
+#Leet Code Question 4 
+# Longest Common Prefix
+
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ""
+
+        # Sort the strings in lexicographic order
+        strs.sort()
+
+        # Find the common prefix between the first and last string
+        first_str = strs[0]
+        last_str = strs[-1]
+        common_prefix = ""
+        for i in range(min(len(first_str), len(last_str))):
+            if first_str[i] == last_str[i]:
+                common_prefix += first_str[i]
+            else:
+                break
+
+        return common_prefix
+
+# Leet Code Question 5
+#Valid Parenthesis
+#Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+#An input string is valid if:
+#Open brackets must be closed by the same type of brackets.
+#Open brackets must be closed in the correct order.
+#Every close bracket has a corresponding open bracket of the same type.
+
+def isValid(s):
+        stack = []
+        opening_brackets = {'(', '{', '['}
+        closing_brackets = {')', '}', ']'}
+        bracket_pairs = {'(': ')', '{': '}', '[': ']'}
+        
+        for c in s:
+            if c in opening_brackets:
+                stack.append(c)
+            elif c in closing_brackets:
+                if not stack:
+                    return False
+                top = stack.pop()
+                if bracket_pairs[top] != c:
+                    return False
+        
+        return len(stack) == 0
+
+#Leet Code Question 6 
+# remove the repeated numbers from the array 
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 0:
+            return 0
+
+        # Initialize two pointers
+        i = 0
+
+        # Iterate over the array starting from the second element
+        for j in range(1, len(nums)):
+            # If the current element is different from the previous element
+            if nums[j] != nums[i]:
+                # Increment the pointer i
+                i += 1
+                # Update the element at index i with the current element
+                nums[i] = nums[j]
+
+        # Return the number of unique elements (k)
+        return i + 1
