@@ -39,3 +39,20 @@ def sqrt(x):
 
     return right
     
+    #Leet code Question 9
+#Length of the last Word
+
+
+def LengthOfLastWord(s):
+
+    s = s.strip()
+    length=0
+
+    for char in s:
+        if char=="":
+            length = 0
+        else:
+            length += 1
+
+    return length
+
