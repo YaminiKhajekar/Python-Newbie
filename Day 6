@@ -1,0 +1,19 @@
+#LEET Code Question 7
+#Plus one
+
+def plusone(digits):
+
+    result = []
+    carry = 1
+
+    for i in range(len(digits)-1, -1, -1):
+
+        sum = digits[i] + carry
+        carry = sum//10
+        result.append(sum%10)
+
+        if carry>0:
+            return result.append(carry)
+        
+        return result
+    
