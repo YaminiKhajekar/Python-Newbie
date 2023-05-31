@@ -1,0 +1,160 @@
+print("Welcome to the rollercoaster")
+height = int(input("What is your height in cm?"))
+
+bill = 0
+if height >= 120:
+    print ("You can ride the rollercoaster")
+    age = int(input("What is your age?"))
+    if age <12:
+        bill = 5
+        print("Please pay $5.")
+    elif age <=18:
+        bill = 7
+        print("Please pay $7.")
+    elif age>=45 and age <=55:
+        bill = 0
+        print("You can ride for free!")
+    else:
+        bill = 12
+        print("Pleasepay $12.")
+    wants_photo = input("Do you want a Photo? Y or N.")
+    if wants_photo == Y:
+        bill +=3
+    print (f"Your bill is ${bill}")  
+else:
+    print("Sorry, You have to grow taller before you can ride")
+
+
+#BMI 2.0
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
+
+calculated_BMI = round(weight/(height*height))
+
+if calculated_BMI <18.5:
+    print(f"Your BMI is {calculated_BMI}, You are underweight")
+elif calculated_BMI <25:
+    print(f"Your BMI is {calculated_BMI}, You have normal weight")
+elif calculated_BMI < 30:
+    print(f"Your BMI is {calculated_BMI}, You are slightly overweight")
+elif calculated_BMI < 35:
+    print (f"Your BMI is {calculated_BMI}, You are obese")
+else:
+    print(f"Your BMI is {calculated_BMI}, You are clinically obese")
+
+#Leap year calculator
+#This one really taught me that making flowcharts is super important
+
+#Pizza Price Calculator
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+
+bill = 0
+if size == 'S':
+    bill = 15
+    if add_pepperoni == 'Y':
+        bill += 2
+elif size == 'M':
+    bill = 20
+    if add_pepperoni == 'Y':
+        bill += 3
+else:
+    bill = 25
+    if add_pepperoni == 'Y':
+        bill += 3
+
+if extra_cheese == 'Y':
+    bill += 1
+
+print(f"Your final bill is: $ {bill}")
+
+
+#Love Calculator
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+
+count_name1 = name1.lower()
+count_name2 = name2.lower()
+
+T = count_name1.count('t') + count_name2.count('t')
+R = count_name1.count('r') + count_name2.count('r')
+U = count_name1.count('u') + count_name2.count('u')
+E = count_name1.count('e') + count_name2.count('e')
+
+digit_1 = T + R + U + E 
+
+L = count_name1.count('l') + count_name2.count('l')
+O = count_name1.count('o') + count_name2.count('o')
+V = count_name1.count('v') + count_name2.count('v')
+E2 = count_name1.count('e') + count_name2.count('e')
+
+digit_2 = L + O + V + E2
+
+score = digit_1*10 + digit_2
+
+if score <10 or score>90:
+    print (f"Your score is {score}, you go together like coke and mentos.")
+elif score>40 and score <50:
+    print(f"Your score is {score}, you are alright together.")
+else:
+    print(f"Your score is {score}.")
+
+
+## Treasure hunt game
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
+#Write your code below this line 👇
+direction = input("What direction do you want to head - right or left?")
+selected_direction = direction.lower()
+
+if selected_direction == "right":
+    print("That was a deadly end, Game Over!")
+else:
+    option = input("You've reached a magical river. Do you want to wait for the boat or swim?")
+    selected_option = option.lower()
+    if selected_option == "swim":
+        print("The river was full of deadly animals. You die - Game Over!")
+    else:
+        door = input("You crossed the river safely and are greeted by a castle with multiple doors! Which door do you want to choose - Red, Blue, or Yellow?")
+        selected_door = door.lower()
+        if selected_door == "red" or selected_door == "blue":
+            print("There was a dragon beyond. It blew fire at you. You are dead - Game Over!")
+        else:
+            print("You've found the elixir. You won!")
+
+
+
+
+
+
+
+
+
