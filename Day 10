@@ -75,3 +75,95 @@ names = names_string.split(", ")
 payer_index = random.randint(0, len(names) - 1)
 payer_name = names[payer_index]
 print(f"{payer_name} is going to buy the meal today!")
+
+
+#Adding 'X' at desired position in a matrix
+
+row1 = ["⬜️","️⬜️","️⬜️"]
+row2 = ["⬜️","⬜️","️⬜️"]
+row3 = ["⬜️️","⬜️️","⬜️️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+
+int_postion = int(position)
+column = int_postion//10
+row = int_postion%10
+a = int(row - 1)
+b  = int(column - 1)
+map[a][b] = 'X'
+
+print(f"{row1}\n{row2}\n{row3}")
+
+
+#ROCK PAPER SCISSORS
+import random
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+player_choice = input(
+    "Let's play Rock, Paper & Scissors. To choose Rock - Type 0, To choose Paper - Type 1, To choose Scissors - Type 2\n"
+)
+choice_int = int(player_choice)
+
+if choice_int >= 3 or choice_int < 0:
+    print("You have entered an invalid number. You lose!")
+else:
+    options = [rock, paper, scissors]
+    player = options[choice_int]
+    print(player)
+
+    comp_choice = random.randint(0, 2)
+    computer = options[comp_choice]
+    print(f"Computer chose:\n{computer}")
+
+    if player == rock:
+        if computer == rock:
+            print("It's a draw")
+        elif computer == paper:
+            print("You lose")
+        else:
+            print("You win")
+
+    if player == paper:
+        if computer == rock:
+            print("You win")
+        elif computer == paper:
+            print("It's a draw")
+        else:
+            print("You lose")
+
+    if player == scissors:
+        if computer == rock:
+            print("You lose")
+        elif computer == paper:
+            print("You win")
+        else:
+            print("It's a draw")
+
