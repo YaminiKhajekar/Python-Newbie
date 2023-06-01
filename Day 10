@@ -35,3 +35,43 @@ iowa_model.fit(train_X, train_y)
 val_predictions = iowa_model.predict(val_X)
 val_mae = mean_absolute_error(val_predictions, val_y)
 print("Validation MAE for best value of max_leaf_nodes: {:,.0f}".format(val_mae))
+
+
+##Using Random
+import random
+
+random_integer = random.randint(1,10)
+print(random_integer)
+
+random_float = random.random()
+print(random_float)
+
+randomFloat = random_float * 5
+
+print(randomFloat)
+
+love_score = random.randint(1,100)
+print(f"Your lovescore is {love_score}")
+
+
+## Random Coin Toss
+
+random_side = random.randint(0,1)
+
+if random_side == 1:
+    print('Heads')
+else:
+    print('Tails') """
+
+""" states_of_america = ["Delware", "Pennsylvania"]
+print(states_of_america[1])
+
+#Who's Going to but the meal today
+import random
+
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+
+payer_index = random.randint(0, len(names) - 1)
+payer_name = names[payer_index]
+print(f"{payer_name} is going to buy the meal today!")
