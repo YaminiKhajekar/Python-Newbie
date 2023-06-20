@@ -1,0 +1,54 @@
+#GROUPING AND SORTING
+
+#Who are the most common wine reviewers in the dataset?
+reviews_written = reviews.groupby('taster_twitter_handle').size()
+
+#What is the best wine I can buy for a given amount of money?
+best_rating_per_price = reviews.groupby('price')['points'].max().sort_index()
+
+#What are the minimum and maximum prices for each variety of wine?
+price_extremes = reviews.groupby('variety').price.agg([min, max])
+
+#What are the most expensive wine varieties?
+sorted_varieties = price_extremes.sort_values(by=['min', 'max'], ascending=False)
+
+#Create a Series whose index is reviewers and whose values is the average review score given out by that reviewer.
+reviewer_mean_ratings = reviews.groupby('taster_name').points.mean()
+
+#What combination of countries and varieties are most common?
+country_variety_counts = reviews.groupby(['country', 'variety']).size().sort_values(ascending=False)
+
+
+#DATATYPES AND MISSING VALUES
+
+#What is the data type of the points column in the dataset?
+dtype = reviews.points.dtype
+
+#Create a Series from entries in the points column, but convert the entries to strings. Hint: strings are str in native Python.
+point_strings = reviews.points.astype(str)
+
+#Sometimes the price column is null. How many reviews in the dataset are missing a price?
+missing_price_reviews = reviews[reviews.price.isnull()]
+n_missing_prices = len(missing_price_reviews)
+
+
+#What are the most common wine-producing regions?
+reviews_per_region = reviews.region_1.fillna('Unknown').value_counts().sort_values(ascending = False)
+
+#RENAMING AND COMBINING
+
+#View the first several lines of your data
+first_few = reviews.head()
+
+#region_1 and region_2 are pretty uninformative names for locale columns in the dataset. Create a copy of reviews with these columns renamed to region and locale, respectively.
+renamed = reviews.rename(columns={'region_1': 'region', 'region_2': 'locale'})
+
+#Set the index name in the dataset to wines.
+reindexed = reviews.rename('wines', axis= 'rows')
+
+#Create a DataFrame of products mentioned on either subreddit.
+combined_products = pd.concat([gaming_products, movie_products])
+
+#Both tables include references to a MeetID, a unique key for each meet (competition) included in the database. Using this, generate a dataset combining the two tables into one.
+powerlifting_combined = powerlifting_meets.set_index("MeetID").join(powerlifting_competitors.set_index("MeetID"))
+
